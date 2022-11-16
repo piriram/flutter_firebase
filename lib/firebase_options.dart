@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAZNSBQu7pVDXoRp6W7hbtVpeNE0EOn6a4',
-    appId: '1:836981585713:android:ff9209afead30a253be210',
-    messagingSenderId: '836981585713',
-    projectId: 'login-practice-ram',
-    storageBucket: 'login-practice-ram.appspot.com',
+    apiKey: 'AIzaSyABl6i_PAWWj2HYB47tlIkeMn30EtwuuOw',
+    appId: '1:222675346416:android:ff64d93eb7cd56ae6cb335',
+    messagingSenderId: '222675346416',
+    projectId: 'login-practice-ram2',
+    storageBucket: 'login-practice-ram2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCUstjxvGrtvFUHc4_i1pQb-YrSfYOGrD4',
-    appId: '1:836981585713:ios:22f8c08e49cbafb03be210',
-    messagingSenderId: '836981585713',
-    projectId: 'login-practice-ram',
-    storageBucket: 'login-practice-ram.appspot.com',
-    iosClientId: '836981585713-bsc9qiuemm3jgpjujc1v0htmfcan7d22.apps.googleusercontent.com',
+    apiKey: 'AIzaSyClk-deEfQ5Jm4iFZPFnC2yAG6Cp8UwaGM',
+    appId: '1:222675346416:ios:132556d81cacd1a66cb335',
+    messagingSenderId: '222675346416',
+    projectId: 'login-practice-ram2',
+    storageBucket: 'login-practice-ram2.appspot.com',
+    iosClientId: '222675346416-57o8dklfgvtjsebhb53enq0l9c71ba7l.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterFirebase',
   );
 }

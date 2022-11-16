@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class SuccessRegisterPage extends StatelessWidget {
   const SuccessRegisterPage({Key? key}) : super(key: key);
 

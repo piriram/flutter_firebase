@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const ChatPage(),
+      home: const LoginPage(),
     );
   }
 }

@@ -62,11 +62,12 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
             ElevatedButton(onPressed: () async {
               try{
+
               final newUser=await _authentication.createUserWithEmailAndPassword(
                   email: email, password: password);
               //동기?비동기?
               if(newUser.user!=null) {
-                _formKey.currentState!.reset();
+                _formKey.currentState!.reset();//null이 아니더라면
                 if (!mounted) return; //안전하지 않기때문에 state가 트리에 mount 됐다는 것을 확인한 후 push
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context) => const SuccessRegisterPage()));

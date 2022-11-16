@@ -14,13 +14,13 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
   void getCurrentUser(){
-    final user = _authentication.currentUser;
+
     try {
+      final user = _authentication.currentUser;
       if (user != null) {
         loggedUser = user;
       }
@@ -32,7 +32,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        title: Text('Success Register'),
+        title: Text('Success Login'),
     ),
       body:Center(
       child: Column(
@@ -47,6 +47,7 @@ class _ChatPageState extends State<ChatPage> {
           SizedBox(
             height:20,
           ),
+         // Text('hi',
           Text(loggedUser!.email!,
             style:
             TextStyle (

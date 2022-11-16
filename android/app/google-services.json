@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "836981585713",
-    "project_id": "login-practice-ram",
-    "storage_bucket": "login-practice-ram.appspot.com"
+    "project_number": "222675346416",
+    "project_id": "login-practice-ram2",
+    "storage_bucket": "login-practice-ram2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:836981585713:android:ff9209afead30a253be210",
+        "mobilesdk_app_id": "1:222675346416:android:ff64d93eb7cd56ae6cb335",
         "android_client_info": {
           "package_name": "com.example.flutter_firebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "836981585713-l70tu0cl8tpm9hl7t7kf05635gg4vfqi.apps.googleusercontent.com",
+          "client_id": "222675346416-dk9uukh99uf5qg2l80vunv8tveq4vpc0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAZNSBQu7pVDXoRp6W7hbtVpeNE0EOn6a4"
+          "current_key": "AIzaSyABl6i_PAWWj2HYB47tlIkeMn30EtwuuOw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "836981585713-l70tu0cl8tpm9hl7t7kf05635gg4vfqi.apps.googleusercontent.com",
+              "client_id": "222675346416-dk9uukh99uf5qg2l80vunv8tveq4vpc0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
