@@ -49,7 +49,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 onChanged: (value){
                   email=value;
-                  print(email);
+                  //print(email);
                 },
 
               ),
@@ -63,7 +63,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 onChanged: (value){
                   password=value;
-                  print(password);
+                  //print(password);
                 },
 
               ),
@@ -76,7 +76,6 @@ class _LoginFormState extends State<LoginForm> {
                 if(currentUser.user != null){
                   _formKey.currentState!.reset();
                   if(!mounted) return;
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>ChatPage()));
                   setState(() {
                     showSpinner=false;
                   });
