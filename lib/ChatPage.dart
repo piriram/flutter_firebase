@@ -39,6 +39,7 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         title: const Text('Chat'),
         actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.list)),
           IconButton(
               onPressed: () {
                 FirebaseAuth.instance.signOut();
