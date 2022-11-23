@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_6.dart';
+import 'ChatPage.dart';
 import 'main.dart';
 
 import 'package:flutter/foundation.dart';
@@ -30,6 +31,7 @@ class _NamePageState extends State<NamePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+
               //Text('Name',textAlign: TextAlign.right,),
 
               Padding(
@@ -55,6 +57,7 @@ class _NamePageState extends State<NamePage> {
                     Navigator.pushNamed(context, '/list', arguments:ScreenArguments(name));
                   },
                   child: Text('Enter')),
+
             ],
           ),
 
@@ -69,10 +72,29 @@ class ListFilterPage extends StatefulWidget {
 
   @override
   State<ListFilterPage> createState() => _ListFilterPageState();
+
 }
 
 class _ListFilterPageState extends State<ListFilterPage> {
+  final _authentication = FirebaseAuth.instance;
+  User? loggedUser;
 
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser() {
+    try {
+      final user = _authentication.currentUser;
+      if (user != null) {
+        loggedUser = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as ScreenArguments;
@@ -82,7 +104,34 @@ class _ListFilterPageState extends State<ListFilterPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Text('${args?.name}'),
+        child: Column(
+          children: [
+            Expanded(
+              child: StreamBuilder(//쫘라락
+                stream: FirebaseFirestore.instance.collection('chat').where("userName",isEqualTo:'${args.name}').orderBy('timestamp').snapshots(),//timestamp로 정렬
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  final docs = snapshot.data!.docs;
+                  //final ref = FirebaseFirestore.instance.collection('chat').where("userName",isEqualTo:"woozico914");
+                  //final chatRef = snapshot.collection('chat').where('userName',arrayContains:name);
+                  return ListView.builder(
+                    itemCount: docs.length,
+                    itemBuilder: (context, index) {//문서값을 리턴
+                      return ListTile(
+                        //isMe: docs[index]['uid'] == _authentication.currentUser!.uid,//같으면
+                        //userName: docs[index]['userName'],
+                        //text: docs[index]['text'],
+                        title:Text('${docs[index]['text']} : by ${docs[index]['userName']}'),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
