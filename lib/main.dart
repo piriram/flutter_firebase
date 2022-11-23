@@ -6,6 +6,7 @@ import 'RegisterPage.dart';
 import 'SuccessRegister.dart';
 import 'ChatPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'Filter.dart';
 
 
 void main() async{
@@ -23,12 +24,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       title: 'Flutter Demo',
       theme: ThemeData(
 
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       //로그인 되어있으면 page 창을 다르게함
+      routes:{ '/list':(context)=>const ListFilterPage(),},
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         //타입이 스트림유저타입 로그인이 됐는지 로그아웃이 됐는지 변화를 알려주는 스트림

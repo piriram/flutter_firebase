@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_6.dart';
+import 'Filter.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -39,7 +40,11 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         title: const Text('Chat'),
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.list)),
+          IconButton(onPressed: (){
+            Navigator.push(context,MaterialPageRoute(
+              builder:(context)=>NamePage()
+            ));
+          }, icon: Icon(Icons.list)),
           IconButton(
               onPressed: () {
                 FirebaseAuth.instance.signOut();
@@ -111,6 +116,7 @@ class ChatElement extends StatelessWidget {
                   style:
                   TextStyle(color: Colors.white),
                 ),
+
               ],
             ),
           ),
