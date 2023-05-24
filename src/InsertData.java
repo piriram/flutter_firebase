@@ -9,17 +9,16 @@ import java.sql.SQLException;
 
 public class InsertData {
     public static void main(String[] args) {
+        String dbName="TEST1";
         String url = "jdbc:mysql://localhost:3306/TEST1?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8";
-        String username = "root";
-        String password = "rhsid312";
         String textFilePath = "/Users/ram/시장데이터.txt";
-
+        String tableName="places";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url, username, password);
+            Connection connection = DriverManager.getConnection(url, Config.USERNAME, Config.PASSWORD);
             System.out.println("MySQL 데이터베이스에 연결되었습니다!");
 
-            String insertQuery = "INSERT INTO Market (시장명, 시장유형, 시장도로명주소, 시장개설주기, 점포수, 공중화장실보유여부, 주차장보유여부, 개설연도) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO "+ tableName +"(시장명, 시장유형, 시장도로명주소, 시장개설주기, 점포수, 공중화장실보유여부, 주차장보유여부, 개설연도) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
 //            InputStreamReader reader=new InputStreamReader(input,"UTF-8");
 //            BufferedReader in=new BufferedReader(reader);
